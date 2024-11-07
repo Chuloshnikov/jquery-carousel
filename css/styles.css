@@ -39,13 +39,13 @@
 }
 
 .card.left {
-    transform: translateX(-220px) rotateY(30deg) translateZ(-100px) scale(0.8);
+    transform: translateX(-220px) rotateY(25deg) skewY(-5deg) scale(1.1, 1); /* наклон и расширение */
     opacity: 0.7;
     z-index: 1;
 }
 
 .card.right {
-    transform: translateX(220px) rotateY(-30deg) translateZ(-100px) scale(0.8);
+    transform: translateX(220px) rotateY(-25deg) skewY(5deg) scale(1.1, 1); /* наклон и расширение */
     opacity: 0.7;
     z-index: 1;
 }
