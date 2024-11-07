@@ -3,21 +3,24 @@ $(document).ready(function() {
     const totalCards = $('.card').length;
 
     function updateCards() {
-        $('.card').removeClass('active left right');
+        $('.card').removeClass('active left right hidden');
         
+        // Центральная карточка
+        $('.card').eq(currentIndex).addClass('active');
+
+        // Левая карточка
         if (currentIndex > 0) {
             $('.card').eq(currentIndex - 1).addClass('left');
         }
-        
-        $('.card').eq(currentIndex).addClass('active');
-        
+
+        // Правая карточка
         if (currentIndex < totalCards - 1) {
             $('.card').eq(currentIndex + 1).addClass('right');
         }
 
-        // Плавное изменение градиента под карточками
-        const gradientColors = ['#f06', '#f90', '#0c6', '#06f'];
-        $('.carousel-container').css('background', `linear-gradient(${gradientColors[currentIndex]}, #000)`);
+        // Скрываем остальные карточки
+        $('.card').slice(0, currentIndex - 1).addClass('hidden');
+        $('.card').slice(currentIndex + 2).addClass('hidden');
     }
 
     $('#next').click(function() {
